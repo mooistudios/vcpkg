@@ -1,11 +1,10 @@
 include(vcpkg_common_functions)
-set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/glfw-3.2.1)
-vcpkg_download_distfile(ARCHIVE
-    URLS "https://github.com/glfw/glfw/releases/download/3.2.1/glfw-3.2.1.zip"
-    FILENAME "glfw-3.2.1.zip"
-    SHA512 73dd6d4a8d28a2b423f0fb25489659c1a845182b7ef09848d4f442cdc489528aea90f43ac84aeedb9d2301c4487f39782b647ee4959e67e83babb838372b980c
-)
-vcpkg_extract_source_archive(${ARCHIVE})
+vcpkg_from_github(
+    OUT_SOURCE_PATH SOURCE_PATH
+    REPO glfw/glfw
+    HEAD_REF master
+    REF 0be4f3f75aebd9d24583ee86590a38e741db0904
+    SHA512 1ac6fc88e729f62562f89e4ecff2885b3b163b8a9432481a87e397a647094940c44092d915f597f85b11439b671d8fd15ac82604376147a282032cadd9813d71)
 
 if(NOT EXISTS ${SOURCE_PATH}/patch-config.stamp)
     message(STATUS "Patching src/glfw3Config.cmake.in")
@@ -65,7 +64,7 @@ if(VCPKG_LIBRARY_LINKAGE STREQUAL dynamic)
 
 endif()
 
-file(COPY ${SOURCE_PATH}/COPYING.txt DESTINATION ${CURRENT_PACKAGES_DIR}/share/glfw3)
-file(RENAME ${CURRENT_PACKAGES_DIR}/share/glfw3/COPYING.txt ${CURRENT_PACKAGES_DIR}/share/glfw3/copyright)
+file(COPY ${SOURCE_PATH}/LICENSE.md DESTINATION ${CURRENT_PACKAGES_DIR}/share/glfw3)
+file(RENAME ${CURRENT_PACKAGES_DIR}/share/glfw3/LICENSE.md ${CURRENT_PACKAGES_DIR}/share/glfw3/copyright)
 vcpkg_copy_pdbs()
 
