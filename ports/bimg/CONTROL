@@ -1,0 +1,5 @@
+Source: bimg
+Version: 2018-07-08
+Description: Branimir Karadžić's image library.
+Build-Depends: bx
+

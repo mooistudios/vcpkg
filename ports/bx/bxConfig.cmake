@@ -1,0 +1,5 @@
+include(CMakeFindDependencyMacro)
+if(UNIX AND NOT APPLE)
+  find_dependency(Threads)
+endif()
+include(${CMAKE_CURRENT_LIST_DIR}/bxTargets.cmake)

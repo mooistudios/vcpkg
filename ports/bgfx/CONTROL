@@ -1,0 +1,22 @@
+Source: bgfx
+Version: 2018.07-1
+Description: Cross-platform, graphics API agnostic, "Bring Your Own Engine/Framework" style rendering library.
+Build-Depends: bx, bimg
+Default-Features: tools
+
+Feature: sdl
+Description: Enable SDL entry
+Build-Depends: sdl2
+
+Feature: glfw
+Description: Enable GLFS entry
+Build-Depends: glfw3
+
+Feature: tools
+Description: Enable building bgfx's tools
+
+Feature: examples
+Description: Enable examples
+
+Feature: combined-examples
+Description: Enable combined examples (as single executable)
