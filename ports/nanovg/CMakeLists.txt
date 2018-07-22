@@ -7,6 +7,12 @@ add_library(nanovg STATIC ${NANOVG_SOURCES} ${NANOVG_HEADERS})
 set_target_properties(nanovg PROPERTIES PUBLIC_HEADER "${NANOVG_HEADERS}")
 target_include_directories(nanovg PRIVATE 3rdparty/nanovg/src)
 
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  target_compile_definitions(nanovg PRIVATE DEBUG)
+else()
+  target_compile_definitions(nanovg PRIVATE NDEBUG)
+endif()
+
 install(TARGETS nanovg
   EXPORT nanovgTargets
   RUNTIME DESTINATION bin
