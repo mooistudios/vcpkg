@@ -1,0 +1,3 @@
+Source: tray
+Version: master
+Description: Cross-platform, single header, super tiny C99 implementation of a system tray icon with a popup menu.
